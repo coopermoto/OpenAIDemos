@@ -7,6 +7,7 @@ builder.Services.Configure<OpenAISettings>(builder.Configuration.GetSection("Ope
 builder.Services.AddScoped<IChatCompletions, ChatCompletions>();
 builder.Services.AddScoped<IImageGeneration, ImageGeneration>();
 builder.Services.AddScoped<IImageToText, ImageToText>();
+builder.Services.AddScoped<IFunctionCalling, FunctionCalling>();
 var host = builder.Build();
 using var scope = host.Services.CreateScope();
 
@@ -28,5 +29,7 @@ var imageGeneration = scope.ServiceProvider.GetRequiredService<IImageGeneration>
 //imageGeneration.GenerateImageVariation();
 
 var imageToText = scope.ServiceProvider.GetRequiredService<IImageToText>();
-imageToText.DescribeImage();
+//imageToText.DescribeImage();
 
+var functionCalling = scope.ServiceProvider.GetRequiredService<IFunctionCalling>();
+functionCalling.SimpleFunctionCalling();
