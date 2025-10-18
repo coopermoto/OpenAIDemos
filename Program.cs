@@ -14,4 +14,10 @@ var chatCompletions = scope.ServiceProvider.GetRequiredService<IChatCompletions>
 //chatCompletions.SimpleChatUsingOpenAIClient();
 //await chatCompletions.SimpleChatAsync();
 //await chatCompletions.SimpleChatStreamingAsync();
-await chatCompletions.SimpleChatUsingOpenAIClientWithMessagesAsync();
+//await chatCompletions.SimpleChatUsingOpenAIClientWithMessagesAsync();
+//chatCompletions.CreatePieDescription();
+//chatCompletions.CreateBetterPieName();
+//chatCompletions.CreatePoshAndFancyPieDescription();
+//chatCompletions.CreateIngredientTable();
+//chatCompletions.CreatePieDescriptionWithOptions();
+await chatCompletions.OpenEndedChatAsync();

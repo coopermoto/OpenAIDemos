@@ -7,4 +7,10 @@ public interface IChatCompletions
     Task SimpleChatStreamingAsync();
     void SimpleChatUsingOpenAIClient();
     Task SimpleChatUsingOpenAIClientWithMessagesAsync();
+    void CreatePieDescription();
+    void CreateBetterPieName();
+    void CreatePoshAndFancyPieDescription();
+    void CreateIngredientTable();
+    void CreatePieDescriptionWithOptions();
+    Task OpenEndedChatAsync();
 }
