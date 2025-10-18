@@ -6,11 +6,11 @@ var builder = Host.CreateApplicationBuilder(args);
 builder.Services.Configure<OpenAISettings>(builder.Configuration.GetSection("OpenAI"));
 builder.Services.AddScoped<IChatCompletions, ChatCompletions>();
 builder.Services.AddScoped<IImageGeneration, ImageGeneration>();
+builder.Services.AddScoped<IImageToText, ImageToText>();
 var host = builder.Build();
 using var scope = host.Services.CreateScope();
 
 var chatCompletions = scope.ServiceProvider.GetRequiredService<IChatCompletions>();
-
 //chatCompletions.SimpleChat();
 //chatCompletions.SimpleChatUsingOpenAIClient();
 //await chatCompletions.SimpleChatAsync();
@@ -24,6 +24,9 @@ var chatCompletions = scope.ServiceProvider.GetRequiredService<IChatCompletions>
 //await chatCompletions.OpenEndedChatAsync();
 
 var imageGeneration = scope.ServiceProvider.GetRequiredService<IImageGeneration>();
-
 //imageGeneration.GenerateImage();
-imageGeneration.GenerateImageVariation();
+//imageGeneration.GenerateImageVariation();
+
+var imageToText = scope.ServiceProvider.GetRequiredService<IImageToText>();
+imageToText.DescribeImage();
+
